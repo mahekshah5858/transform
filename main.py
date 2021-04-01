@@ -24,7 +24,7 @@ def delete_r_nan(df):
     logger.debug(f"Output Data {df}")
     logger.info("End Processing ")
 
-
+'''
 if __name__ == '__main__':
     d = {'A': [10,6,10,10,10], 'B': [20,30,12,15,8], 'C':[1,2,3,4,5], 'D': [9,2,3,4,8]}
     df = pd.DataFrame({'A': [23,25,28,3,12,21,4,23,27,20], 'B': [5,11,15,7,17,8,8,2,11,15], 
@@ -34,3 +34,5 @@ if __name__ == '__main__':
 
     df2 = transformer_output(df, transformer)
     print(df2)
+
+'''
