@@ -5,10 +5,11 @@ import operation as operation
 import logger_config as lc
 
 logger = lc.get_logger("transformer_log", "logs/logger.log")
-logger.setLevel(logging.ERROR)
+logger.setLevel(logging.DEBUG)
 
+#logger.debug(pd.show_versions(as_json=False))
 
-def transformer_output(input_df, transformer_data):
+def transform_tr_set(input_df, transformer_data):
     logger.info("Start Processing ")
     logger.debug("Transformer Data {transformer_data}")
     logger.debug("Input Dataframe {input_df.to_dict()}")
@@ -32,7 +33,6 @@ if __name__ == '__main__':
     transformer = {"cols": ["AA", "BB", "CC", "DD", "EE", "FF"],"generators": {"AA": {"fn": "pct_chng","args": ["A","C"]},"BB": {"fn": "pct_chng","args": ["B", "A"]},"CC": {"fn": "pct_chng","args": ["D", "B"]},"DD": {"fn": "pct_chng","args": ["C", "D"]},"EE": {"fn": "shift","args": ["A", "4"]},"FF": {"fn": "pct_chng","args": ["C","B"]}}}
     
 
-    df2 = transformer_output(df, transformer)
+    df2 = transform_tr_set(df, transformer)
     print(df2)
-
 '''
