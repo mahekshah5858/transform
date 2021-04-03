@@ -43,7 +43,7 @@ def post_process_output(df):
 @pytest.mark.parametrize("test_input,transformer, expected", test_cases)
 def test_eval(test_input,transformer, expected):
 
-    op_result = main.transformer_output(test_input, transformer)
+    op_result = main.transform_tr_set(test_input, transformer)
     op_result = post_process_output(op_result)
     op = post_process_output(expected)
     print(op)
