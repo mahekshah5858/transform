@@ -34,7 +34,7 @@ class Operation:
     
     def __init__(self, generator_object, input_dataframe, processed_df):
         logger.info("Operation class initiated")
-        logger.debug(f"Generator class : {generator_object.__dict__}")
+        logger.debug("Generator class : {generator_object.__dict__}")
         self.generator_object = generator_object
         self.input_df = input_dataframe
         self.processed_df = processed_df
@@ -51,7 +51,7 @@ class Operation:
         True : If operation successful
     '''
     def perform_operation(self):
-        logger.debug(f"Operation is {self.generator_object.function}")
+        logger.debug("Operation is {self.generator_object.function}")
         if self.generator_object.function == "idemp":
             return self.idemp()
         
@@ -93,12 +93,12 @@ class Operation:
             ds =  np.isinf(ou).values.sum()
 
             if ds != 0:
-                logger.exception(f"One of the series value is 0. series {ip_series_2.to_list()}. Divide by zero.")
+                logger.exception("One of the series value is 0. series {ip_series_2.to_list()}. Divide by zero.")
                 return False
 
             self.processed_df[target_column] = ou
         except ZeroDivisionError as e:
-            logger.exception(f"One of the series value is 0. series {ip_series_2.to_list()}. Divide by zero. {e}")
+            logger.exception("One of the series value is 0. series {ip_series_2.to_list()}. Divide by zero. {e}")
             return False
         logger.debug("percentage change operation completed")
         return True
@@ -112,7 +112,7 @@ class Operation:
         shift_number = int(arguments[1])
         ip_series = return_series(self.input_df, self.processed_df, source_column)
         if shift_number > len(ip_series):
-            logger.error(f"Size of input series in smaller than the shift. Input data {ip_series.to_list()} and shift number {shift_number}")
+            logger.error("Size of input series in smaller than the shift. Input data {ip_series.to_list()} and shift number {shift_number}")
             return False
         op = ip_series.iloc[shift_number:].reset_index(drop=True)
 

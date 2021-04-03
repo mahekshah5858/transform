@@ -10,18 +10,18 @@ logger.setLevel(logging.ERROR)
 
 def transformer_output(input_df, transformer_data):
     logger.info("Start Processing ")
-    logger.debug(f"Transformer Data {transformer_data}")
-    logger.debug(f"Input Dataframe {input_df.to_dict()}")
+    logger.debug("Transformer Data {transformer_data}")
+    logger.debug("Input Dataframe {input_df.to_dict()}")
     output_df = create_transformer_output(input_df, transformer_data)
-    logger.debug(f"Output is {output_df}")
+    logger.debug("Output is {output_df}")
     logger.info("Process completed")
     return output_df
 
 def delete_r_nan(df):
     logger.info("Start Processing - Delete NaN")
-    logger.debug(f"Input DataFrame {df}")
+    logger.debug("Input DataFrame {df}")
     operation.drop_nan_rows(df)
-    logger.debug(f"Output Data {df}")
+    logger.debug("Output Data {df}")
     logger.info("End Processing ")
 
 '''

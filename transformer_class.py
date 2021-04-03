@@ -50,7 +50,7 @@ class TransFormer:
         generator_keys = self.generators.keys()
 
         if set(self.columns) != set(generator_keys):
-            logger.error(f"one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
+            logger.error("one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
             #print(f"one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
             return False
         return True
@@ -91,7 +91,7 @@ class Generator:
     def validate_function_argument(self):
         valid_functions = ['idemp', 'pct_chng', 'shift']
         if self.function.strip() not in valid_functions:
-            logger.error(f"Invalid function name {self.function}. Please choose from te {valid_functions}")
+            logger.error("Invalid function name {self.function}. Please choose from te {valid_functions}")
             #print(f"Invalid function name {self.function}")
             return False
         
@@ -102,7 +102,7 @@ class Generator:
         elif self.function.strip() == "shift" and len(self.arguments) == 2:
             return True
         else:
-            logger.error(f"Please check the function {self.function} and argument {self.arguments}")
+            logger.error("Please check the function {self.function} and argument {self.arguments}")
         
         
     
@@ -118,7 +118,7 @@ Return:
 def validate_input_keys(list_of_keys, data):
     for key in list_of_keys:
         if key not in data:
-            logger.error(f"Transformer json key is not matching with the template transformer key. Please chech {key}")
+            logger.error("Transformer json key is not matching with the template transformer key. Please chech {key}")
             #print(f"key is not as expected. Rename its to {key}")
             return False
     return True
