@@ -1,0 +1,45 @@
+{
+  "cols": [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE"
+  ],
+  "generators": {
+    "AA": {
+      "fn": "shift",
+      "args": [
+        "A",
+	"1"
+      ]
+    },
+    "BB": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "1"
+      ]
+    },
+    "CC": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "1"
+      ]
+    },
+    "DD": {
+      "fn": "shift",
+      "args": [
+        "D",
+        "1"
+      ]
+    },
+    "EE": {
+      "fn": "idemp",
+      "args": [
+        "D"
+      ]
+    }
+  }
+}

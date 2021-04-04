@@ -1,0 +1,6 @@
+---
+fn: delete_r_nan
+args:
+  - input_tc_51.csv
+out:
+  - output_tc_51.csv

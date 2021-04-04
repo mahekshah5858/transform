@@ -3,12 +3,13 @@ import json
 import pandas as pd
 
 from main import transform_tr_set
+from main import delete_r_nan
 
 import traceback
 
 g_tc_dir = 'tests'
-g_tc_inputs_dir = 'tests/data/inputs/'
-g_tc_outputs_dir = 'tests/data/outputs/'
+g_tc_inputs_dir = 'tests/inputs/'
+g_tc_outputs_dir = 'tests/outputs/'
 g_ts_filename = 'ts.yaml'
 
 g_tc_exec_results = {}
@@ -59,9 +60,13 @@ def exec_and_eval_transform_tr_set(args, out):
 
         return 'EXCEPTION_OCCURRED'
 
-    if out_df.equals(expec_out_df) == True:
+    if out_df.reset_index(drop=True).equals(expec_out_df) == True:
         return 'PASS'
     else:
+        print('Output DataFrame:')
+        print(out_df)
+        print('\nExpected Output DataFrame:')
+        print(expec_out_df)
         return 'FAIL'
 
 
@@ -73,7 +78,42 @@ def exec_and_eval_delete_r_nan(args, out):
         print('Number of return vals: ' + str(len(out)) + ' != 1')
         return 'NE_INVALID_OUTPUTS'
 
-    return 'FAIL'
+    input_csv = g_tc_inputs_dir + args[0]
+    try:
+        if input_csv == 'NULL':
+            in_df = None
+        elif input_csv == 'EMPTY':
+            in_df = pd.DataFrame()
+        else:
+            in_df = pd.read_csv(input_csv)
+    except:
+        print('Error in reading input CSV ' + args[0] + ' file')
+        return 'NE_INVALID_INPUTS'
+
+    output_csv = g_tc_outputs_dir + out[0]
+    try:
+        expec_out_df = pd.read_csv(output_csv)
+    except:
+        print('Error in reading output CSV ' + out + ' file')
+        return 'NE_INVALID_OUTPUT'
+
+    try:
+        delete_r_nan(in_df)
+    except:
+        print('Exception occurred in transform_tr_set\n')
+        traceback.print_exc()
+
+        return 'EXCEPTION_OCCURRED'
+
+    in_df = in_df.reset_index(drop=True)
+    if in_df.equals(expec_out_df) == True:
+        return 'PASS'
+    else:
+        print('Output DataFrame:')
+        print(in_df)
+        print('\nExpected Output DataFrame:')
+        print(expec_out_df)
+        return 'FAIL'
 
 
 def exec_tc(tc):
@@ -86,8 +126,10 @@ def exec_tc(tc):
     elif tc['fn'] == 'delete_r_nan':
         result = exec_and_eval_delete_r_nan(tc['args'], tc['out'])
     else:
+        result = 'NE_FUNC_UNDEFINED'
         print('Unable to test ' + tc['fn'] + ' because it is not defined for me')
 
+    print('TC Result: ' + result + '\n')
     return result    
 
 def run():
