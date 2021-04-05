@@ -35,7 +35,6 @@ class TransFormer:
 
             self.generator_list.append(generator_object)
         self.decide_generator_list_order()
-        print(self.columns)
         self.decide_columns()
 
 

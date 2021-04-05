@@ -9,12 +9,18 @@ warnings.filterwarnings("ignore")
 
 logger = logging.getLogger("transformer_log")
 
+'''
+Convert the column to float
+'''
 def convert_to_float(df):
     for i in df.columns:
         if df[i].dtype != np.int64:
             df[i] = df[i].astype(float)
     return df
 
+'''
+Use python round function to round till 2 decimal points
+'''
 def rounded_two_decimal(df):
     if type(df) == type(None):
         return df
@@ -22,6 +28,9 @@ def rounded_two_decimal(df):
     df = df.round(2)
     return df
 
+'''
+Remove intermediate operation columns
+'''
 def filter_columns(df, tr):
     if type(df) == type(None):
         return df
