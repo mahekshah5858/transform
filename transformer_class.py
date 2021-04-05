@@ -34,8 +34,45 @@ class TransFormer:
                 break
 
             self.generator_list.append(generator_object)
+        self.decide_generator_list_order()
+        print(self.columns)
+        self.decide_columns()
+
 
         logger.info("Transformer Object created ")
+
+    '''
+    Decide the order of the generator
+    '''
+    def decide_generator_list_order(self):
+        temp_dictionary = {i.key: i for i in self.generator_list}
+        execute_list = []
+        for key in temp_dictionary:
+            if key in execute_list:
+                continue
+            vals = temp_dictionary[key].arguments
+            for temp in vals:
+                if temp in execute_list or temp not in temp_dictionary:
+                    continue
+                execute_list.append(temp)
+            execute_list.append(key)
+
+        temp_generator_list = []
+        for i in execute_list:
+            temp_generator_list.append(temp_dictionary[i])
+        
+        self.generator_list = temp_generator_list
+
+    '''
+    Decide column order
+    '''
+    def decide_columns(self):
+        column_ordered = []
+        for i in self.generator_list:
+            if i.key in self.columns and i.key not in column_ordered:
+                column_ordered.append(i.key)
+        
+        self.columns  = column_ordered
         
  
     '''
@@ -49,10 +86,10 @@ class TransFormer:
     def validate_columns(self):
         generator_keys = self.generators.keys()
 
-        if set(self.columns) != set(generator_keys):
+        if set(self.columns) - set(generator_keys) != {}:
             logger.error("one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
             #print(f"one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
-            return False
+            return True
         return True
         
         
