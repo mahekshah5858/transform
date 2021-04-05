@@ -1,0 +1,154 @@
+{
+  "cols": [
+    "A",
+    "B",
+    "C",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+    "II",
+    "JJ",
+    "KK",
+    "LL",
+    "MM",
+    "NN",
+    "OO",
+    "PP",
+    "QQ",
+    "RR"
+  ],
+  "generators": {
+    "A": {
+      "fn": "idemp",
+      "args": [
+        "A"
+      ]
+    },
+    "B": {
+      "fn": "idemp",
+      "args": [
+        "B"
+      ]
+    },
+    "C": {
+      "fn": "idemp",
+      "args": [
+        "C"
+      ]
+    },
+    "DD": {
+      "fn": "shift",
+      "args": [
+        "A",
+        "1"
+      ]
+    },
+    "EE": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "1"
+      ]
+    },
+    "FF": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "1"
+      ]
+    },
+    "GG": {
+      "fn": "shift",
+      "args": [
+        "A",
+        "2"
+      ]
+    },
+    "HH": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "2"
+      ]
+    },
+    "II": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "2"
+      ]
+    },
+    "JJ": {
+      "fn": "shift",
+      "args": [
+        "A",
+        "3"
+      ]
+    },
+    "KK": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "3"
+      ]
+    },
+    "LL": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "3"
+      ]
+    },
+    "MM": {
+      "fn": "shift",
+      "args": [
+        "A",
+        "4"
+      ]
+    },
+    "NN": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "4"
+      ]
+    },
+    "OO": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "4"
+      ]
+    },
+    "PP": {
+      "fn": "shift",
+      "args": [
+        "A",
+        "5"
+      ]
+    },
+    "QQ": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "5"
+      ]
+    },
+    "RR": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "5"
+      ]
+    },
+    "SS": {
+      "fn": "pct_chng",
+      "args": [
+        "RR",
+        "QQ"
+      ]
+    }
+  }
+}

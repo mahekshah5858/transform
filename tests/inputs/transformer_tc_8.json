@@ -1,0 +1,85 @@
+{
+  "cols": [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "XX",
+    "YY",
+    "ZZ"
+  ],
+  "generators": {
+    "FF": {
+      "fn": "pct_chng",
+      "args": [
+	"D",
+        "FF_T"
+      ]
+    },
+    "FF_T": {
+      "fn": "shift",
+      "args": [
+        "D",
+	"1"
+      ]
+    },
+    "EE": {
+      "fn": "shift",
+      "args": [
+        "FF",
+	"1"
+      ]
+    },
+    "DD": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "2"
+      ]
+    },
+    "CC": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "3"
+      ]
+    },
+    "BB": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "4"
+      ]
+    },
+    "AA": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "5"
+      ]
+    },
+    "XX": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "6"
+      ]
+    },
+    "YY": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "7"
+      ]
+    },
+    "ZZ": {
+      "fn": "shift",
+      "args": [
+        "FF",
+        "8"
+      ]
+    }
+  }
+}

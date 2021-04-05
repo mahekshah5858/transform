@@ -60,7 +60,12 @@ def exec_and_eval_transform_tr_set(args, out):
 
         return 'EXCEPTION_OCCURRED'
 
-    if out_df.reset_index(drop=True).equals(expec_out_df) == True:
+    if out_df is None:
+        print('Output DataFrame: None')
+        print('\nExpected Output DataFrame:')
+        print(expec_out_df)
+        return 'FAIL'
+    elif out_df.reset_index(drop=True).equals(expec_out_df) == True:
         return 'PASS'
     else:
         print('Output DataFrame:')

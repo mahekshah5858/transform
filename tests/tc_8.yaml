@@ -1,0 +1,7 @@
+---
+fn: transform_tr_set
+args:
+  - input_tc_7.csv
+  - transformer_tc_8.json
+out:
+  - output_tc_8.csv

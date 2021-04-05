@@ -1,0 +1,175 @@
+{
+  "cols": [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+    "II",
+    "JJ",
+    "KK",
+    "LL",
+    "MM",
+    "NN",
+    "OO",
+    "PP",
+    "QQ",
+    "RR",
+    "SS"
+  ],
+  "generators": {
+    "SS": {
+      "fn": "idemp",
+      "args": [
+        "A"
+      ]
+    },
+    "A_T": {
+      "fn": "shift",
+      "args": [
+        "A",
+        "1"
+      ]
+    },
+    "B_T": {
+      "fn": "shift",
+      "args": [
+        "B",
+        "1"
+      ]
+    },
+    "C_T": {
+      "fn": "shift",
+      "args": [
+        "C",
+        "1"
+      ]
+    },
+    "AA": {
+      "fn": "idemp",
+      "args": [
+        "A_T"
+      ]
+    },
+    "BB": {
+      "fn": "idemp",
+      "args": [
+        "B_T"
+      ]
+    },
+    "CC": {
+      "fn": "idemp",
+      "args": [
+        "C_T"
+      ]
+    },
+    "DD": {
+      "fn": "shift",
+      "args": [
+        "AA",
+        "1"
+      ]
+    },
+    "EE": {
+      "fn": "shift",
+      "args": [
+        "BB",
+        "1"
+      ]
+    },
+    "FF": {
+      "fn": "shift",
+      "args": [
+        "CC",
+        "1"
+      ]
+    },
+    "GG": {
+      "fn": "shift",
+      "args": [
+        "AA",
+        "2"
+      ]
+    },
+    "HH": {
+      "fn": "shift",
+      "args": [
+        "BB",
+        "2"
+      ]
+    },
+    "II": {
+      "fn": "shift",
+      "args": [
+        "CC",
+        "2"
+      ]
+    },
+    "JJ": {
+      "fn": "shift",
+      "args": [
+        "AA",
+        "3"
+      ]
+    },
+    "KK": {
+      "fn": "shift",
+      "args": [
+        "BB",
+        "3"
+      ]
+    },
+    "LL": {
+      "fn": "shift",
+      "args": [
+        "CC",
+        "3"
+      ]
+    },
+    "MM": {
+      "fn": "shift",
+      "args": [
+        "AA",
+        "4"
+      ]
+    },
+    "NN": {
+      "fn": "shift",
+      "args": [
+        "BB",
+        "4"
+      ]
+    },
+    "OO": {
+      "fn": "shift",
+      "args": [
+        "CC",
+        "4"
+      ]
+    },
+    "PP": {
+      "fn": "shift",
+      "args": [
+        "AA",
+        "5"
+      ]
+    },
+    "QQ": {
+      "fn": "shift",
+      "args": [
+        "BB",
+        "5"
+      ]
+    },
+    "RR": {
+      "fn": "shift",
+      "args": [
+        "CC",
+        "5"
+      ]
+    }
+  }
+}
