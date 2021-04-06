@@ -86,7 +86,7 @@ class TransFormer:
         generator_keys = self.generators.keys()
 
         if set(self.columns) - set(generator_keys) != {}:
-            logger.error("one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
+            logger.info("one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
             #print(f"one or more columns are not matching with the transformer columns {set(self.columns) - set(generator_keys)}")
             return True
         return True
